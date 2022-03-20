@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            padding: 1rem;
+            text-align: center;
+        }
+        .main-dog{
+            text-align: center;
+            font-size: large;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        button{
+            background-color: rgb(154, 161, 167);
+
+        }
+        .dog-img{
+            width: 20rem;
+            height: 15rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <main class="main-dog">
+        <p class="dogs-text">Dogs ramdon Photo</p>
+        <button class="dog-but">Get a random Dogs photos</button>
+       
+    </main>
+    <img class="dog-img" src="" alt="dogs">
+</div>
+    <script>
+        const Api_dogs = 'https://dog.ceo/api/breeds/image/random'
+        async function dogy(params) {
+            const linkDog = await fetch(Api_dogs);
+            const json = await linkDog.json()
+            console.log(json);
+            const img = document.querySelector('.dog-img').src = json.message
+        }
+        const but = document.querySelector('.dog-but').addEventListener('click', dogy)
+    </script>
+</body>
+</html>
